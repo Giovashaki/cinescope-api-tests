@@ -89,4 +89,6 @@ class TestMoviesAPI:
         duplicate_data = DataGenerator.generate_movie_data()
         duplicate_data["name"] = created_movie["name"]
 
-        api_manager.movies_api.create_movie(duplicate_data, expected_status=409)
+        api_manager.movies_api.create_movie(
+            duplicate_data, expected_status=409
+        )

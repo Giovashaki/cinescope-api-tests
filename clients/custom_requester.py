@@ -16,7 +16,10 @@ class CustomRequester:
         self.logger = logging.getLogger(__name__)
         self.logger.setLevel(logging.INFO)
 
-    def send_request(self, method, endpoint, data=None, params=None, expected_status=200, need_logging=True):
+    def send_request(
+        self, method, endpoint, data=None,
+        params=None, expected_status=200, need_logging=True
+    ):
         url = f"{self.base_url}{endpoint}"
         response = self.session.request(method, url, json=data, params=params)
 
@@ -46,7 +49,8 @@ class CustomRequester:
             headers = " \\\n".join(
                 [f"-H '{h}: {v}'" for h, v in request.headers.items()]
             )
-            full_test_name = f"pytest {os.environ.get('PYTEST_CURRENT_TEST', '').replace(' (call)', '')}"
+            test_name = os.environ.get('PYTEST_CURRENT_TEST', '')
+            full_test_name = f"pytest {test_name.replace(' (call)', '')}"
 
             body = ""
             if hasattr(request, 'body') and request.body is not None:
