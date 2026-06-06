@@ -5,15 +5,10 @@ from constants import MOVIES_URL, MOVIES_ENDPOINT
 class MoviesAPI(CustomRequester):
 
     def __init__(self, session):
-        super().__init__(session=session, base_url=MOVIES_URL)
+        super().__init__(session=session, base_url="https://api.dev-cinescope.coconutqa.ru/")
 
-    def get_movies(self, params=None, expected_status=200):
-        return self.send_request(
-            method="GET",
-            endpoint=MOVIES_ENDPOINT,
-            params=params,
-            expected_status=expected_status
-        )
+    def get_movies(self, params=None):
+        return self.send_request("GET", "movies", params=params)
 
     def create_movie(self, data, expected_status=201):
         return self.send_request(

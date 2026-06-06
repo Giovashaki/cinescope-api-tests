@@ -1,0 +1,99 @@
+2026-06-06 15:08:03 [32mINFO[0m 
+======================================== REQUEST ========================================
+2026-06-06 15:08:03 [32mINFO[0m [32mpytest tests/api/test_movies.py::TestMovies::test_update_movie (setup)[0m
+curl -X POST 'https://api.dev-cinescope.coconutqa.ru//movies' \
+-H 'User-Agent: python-requests/2.33.1' \
+-H 'Accept-Encoding: gzip, deflate, zstd' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgwNzQ0MDgyLCJleHAiOjE3ODA3NDU4ODJ9.nz-ll5M9rizyai5tzObjMIt0lqzHAPny-i4xnKF74ew' \
+-H 'Content-Length: 154' \
+-d '{"name": "Test Movie kynlyhst", "price": 641.05, "description": "Sing force everybody over together.", "location": "MSK", "published": true, "genreId": 1}' 
+
+2026-06-06 15:08:03 [32mINFO[0m 
+======================================== RESPONSE ========================================
+2026-06-06 15:08:03 [32mINFO[0m 	STATUS_CODE: [32m201[0m
+	DATA:
+{
+    "id": 53374,
+    "name": "Test Movie kynlyhst",
+    "price": 641,
+    "description": "Sing force everybody over together.",
+    "imageUrl": null,
+    "location": "MSK",
+    "published": true,
+    "rating": 0,
+    "genreId": 1,
+    "createdAt": "2026-06-06T11:08:03.647Z",
+    "genre": {
+        "name": "Драма"
+    }
+}
+2026-06-06 15:08:03 [32mINFO[0m ================================================================================
+2026-06-06 15:08:04 [32mINFO[0m 
+======================================== REQUEST ========================================
+2026-06-06 15:08:04 [32mINFO[0m [32mpytest tests/api/test_movies.py::TestMovies::test_update_movie[0m
+curl -X PATCH 'https://api.dev-cinescope.coconutqa.ru//movies/53374' \
+-H 'User-Agent: python-requests/2.33.1' \
+-H 'Accept-Encoding: gzip, deflate, zstd' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgwNzQ0MDgyLCJleHAiOjE3ODA3NDU4ODJ9.nz-ll5M9rizyai5tzObjMIt0lqzHAPny-i4xnKF74ew' \
+-H 'Content-Length: 90' \
+-d '{"name": "Updated tfxobq", "price": 794.13, "description": "Oil room early report glass."}' 
+
+2026-06-06 15:08:04 [32mINFO[0m 
+======================================== RESPONSE ========================================
+2026-06-06 15:08:04 [32mINFO[0m 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "id": 53374,
+    "name": "Updated tfxobq",
+    "description": "Oil room early report glass.",
+    "genreId": 1,
+    "imageUrl": null,
+    "price": 794,
+    "rating": 0,
+    "location": "MSK",
+    "published": true,
+    "createdAt": "2026-06-06T11:08:03.647Z",
+    "genre": {
+        "name": "Драма"
+    }
+}
+2026-06-06 15:08:04 [32mINFO[0m ================================================================================
+2026-06-06 15:08:04 [32mINFO[0m 
+======================================== REQUEST ========================================
+2026-06-06 15:08:04 [32mINFO[0m [32mpytest tests/api/test_movies.py::TestMovies::test_update_movie (teardown)[0m
+curl -X DELETE 'https://api.dev-cinescope.coconutqa.ru//movies/53374' \
+-H 'User-Agent: python-requests/2.33.1' \
+-H 'Accept-Encoding: gzip, deflate, zstd' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgwNzQ0MDgyLCJleHAiOjE3ODA3NDU4ODJ9.nz-ll5M9rizyai5tzObjMIt0lqzHAPny-i4xnKF74ew' \
+-H 'Content-Length: 0' \
+
+2026-06-06 15:08:04 [32mINFO[0m 
+======================================== RESPONSE ========================================
+2026-06-06 15:08:04 [32mINFO[0m 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "id": 53374,
+    "name": "Updated tfxobq",
+    "price": 794,
+    "description": "Oil room early report glass.",
+    "imageUrl": null,
+    "location": "MSK",
+    "published": true,
+    "rating": 0,
+    "genreId": 1,
+    "createdAt": "2026-06-06T11:08:03.647Z",
+    "reviews": [],
+    "genre": {
+        "name": "Драма"
+    }
+}
+2026-06-06 15:08:04 [32mINFO[0m ================================================================================
