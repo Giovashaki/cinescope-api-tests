@@ -1,0 +1,88 @@
+2026-06-07 21:32:53 [32mINFO[0m 
+======================================== REQUEST ========================================
+2026-06-07 21:32:53 [32mINFO[0m [32mpytest tests/api/test_movies.py::TestMovies::test_create_duplicate_movie (setup)[0m
+curl -X POST 'https://api.dev-cinescope.coconutqa.ru//movies' \
+-H 'User-Agent: python-requests/2.33.1' \
+-H 'Accept-Encoding: gzip, deflate, zstd' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgwODUzNTcwLCJleHAiOjE3ODA4NTUzNzB9.RyNpSPoj6G8QanONf36BM6P1-Xv_eVro2F6wUvzxuGM' \
+-H 'Content-Length: 139' \
+-d '{"name": "Test Movie yybcctwl", "price": 840.11, "description": "Newspaper spring my.", "location": "MSK", "published": true, "genreId": 1}' 
+
+2026-06-07 21:32:53 [32mINFO[0m 
+======================================== RESPONSE ========================================
+2026-06-07 21:32:53 [32mINFO[0m 	STATUS_CODE: [32m201[0m
+	DATA:
+{
+    "id": 53585,
+    "name": "Test Movie yybcctwl",
+    "price": 840,
+    "description": "Newspaper spring my.",
+    "imageUrl": null,
+    "location": "MSK",
+    "published": true,
+    "rating": 0,
+    "genreId": 1,
+    "createdAt": "2026-06-07T17:32:53.227Z",
+    "genre": {
+        "name": "Драма"
+    }
+}
+2026-06-07 21:32:53 [32mINFO[0m ================================================================================
+2026-06-07 21:32:53 [32mINFO[0m 
+======================================== REQUEST ========================================
+2026-06-07 21:32:53 [32mINFO[0m [32mpytest tests/api/test_movies.py::TestMovies::test_create_duplicate_movie[0m
+curl -X POST 'https://api.dev-cinescope.coconutqa.ru//movies' \
+-H 'User-Agent: python-requests/2.33.1' \
+-H 'Accept-Encoding: gzip, deflate, zstd' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgwODUzNTcwLCJleHAiOjE3ODA4NTUzNzB9.RyNpSPoj6G8QanONf36BM6P1-Xv_eVro2F6wUvzxuGM' \
+-H 'Content-Length: 153' \
+-d '{"name": "Test Movie yybcctwl", "price": 115.65, "description": "Information statement anyone room.", "location": "SPB", "published": true, "genreId": 1}' 
+
+2026-06-07 21:32:53 [32mINFO[0m 
+======================================== RESPONSE ========================================
+2026-06-07 21:32:53 [32mINFO[0m 	STATUS_CODE: [31m409[0m
+	DATA: [31m{
+    "message": "Фильм с таким названием уже существует",
+    "error": "Conflict",
+    "statusCode": 409
+}[0m
+2026-06-07 21:32:53 [32mINFO[0m ================================================================================
+2026-06-07 21:32:53 [32mINFO[0m 
+======================================== REQUEST ========================================
+2026-06-07 21:32:53 [32mINFO[0m [32mpytest tests/api/test_movies.py::TestMovies::test_create_duplicate_movie (teardown)[0m
+curl -X DELETE 'https://api.dev-cinescope.coconutqa.ru//movies/53585' \
+-H 'User-Agent: python-requests/2.33.1' \
+-H 'Accept-Encoding: gzip, deflate, zstd' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgwODUzNTcwLCJleHAiOjE3ODA4NTUzNzB9.RyNpSPoj6G8QanONf36BM6P1-Xv_eVro2F6wUvzxuGM' \
+-H 'Content-Length: 0' \
+
+2026-06-07 21:32:53 [32mINFO[0m 
+======================================== RESPONSE ========================================
+2026-06-07 21:32:53 [32mINFO[0m 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "id": 53585,
+    "name": "Test Movie yybcctwl",
+    "price": 840,
+    "description": "Newspaper spring my.",
+    "imageUrl": null,
+    "location": "MSK",
+    "published": true,
+    "rating": 0,
+    "genreId": 1,
+    "createdAt": "2026-06-07T17:32:53.227Z",
+    "reviews": [],
+    "genre": {
+        "name": "Драма"
+    }
+}
+2026-06-07 21:32:53 [32mINFO[0m ================================================================================

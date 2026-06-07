@@ -1,0 +1,20 @@
+2026-06-07 21:32:52 [32mINFO[0m 
+======================================== REQUEST ========================================
+2026-06-07 21:32:52 [32mINFO[0m [32mpytest tests/api/test_movies.py::TestMovies::test_get_movie_by_invalid_id[0m
+curl -X GET 'https://api.dev-cinescope.coconutqa.ru//movies/999999999' \
+-H 'User-Agent: python-requests/2.33.1' \
+-H 'Accept-Encoding: gzip, deflate, zstd' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgwODUzNTcwLCJleHAiOjE3ODA4NTUzNzB9.RyNpSPoj6G8QanONf36BM6P1-Xv_eVro2F6wUvzxuGM' \
+
+2026-06-07 21:32:52 [32mINFO[0m 
+======================================== RESPONSE ========================================
+2026-06-07 21:32:52 [32mINFO[0m 	STATUS_CODE: [31m404[0m
+	DATA: [31m{
+    "message": "Фильм не найден",
+    "error": "Not Found",
+    "statusCode": 404
+}[0m
+2026-06-07 21:32:52 [32mINFO[0m ================================================================================
