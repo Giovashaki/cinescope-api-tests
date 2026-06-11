@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field, ConfigDict
-from typing import Optional, List
+from typing import Optional, List, Literal
 
 
 class GenreModel(BaseModel):
@@ -15,14 +15,14 @@ class MovieModel(BaseModel):
     id: int
     name: str
     price: float
-    description: Optional[str] = None
+    description: str
     imageUrl: Optional[str] = None
-    location: Optional[str] = None
+    location: Literal["MSK", "SPB"]
     published: bool
-    genreId: Optional[int] = None
+    genreId: int
     genre: Optional[GenreModel] = None
-    createdAt: Optional[str] = None
-    rating: Optional[float] = None
+    createdAt: str
+    rating: float = Field(ge=0, le=5)
 
 
 class FindAllMoviesResponse(BaseModel):

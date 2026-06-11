@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, Float, Boolean, DateTime
+from sqlalchemy import Column, String, Integer, Float, Boolean, DateTime
 from sqlalchemy.orm import declarative_base
 
 Base = declarative_base()
@@ -7,15 +7,15 @@ Base = declarative_base()
 class MovieDBModel(Base):
     __tablename__ = "movies"
 
-    id = Column(String, primary_key=True)
+    id = Column(Integer, primary_key=True)
     name = Column(String)
-    price = Column(Float)
+    price = Column(Integer)
     description = Column(String)
     image_url = Column(String)
     location = Column(String)
     published = Column(Boolean)
     rating = Column(Float)
-    genre_id = Column(String)
+    genre_id = Column(Integer)
     created_at = Column(DateTime)
 
     def __repr__(self):

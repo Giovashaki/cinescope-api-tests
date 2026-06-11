@@ -15,6 +15,7 @@ class TestMovies:
     @allure.title("GET /movies — получение списка с полной валидацией схемы")
     @allure.severity(allure.severity_level.CRITICAL)
     @pytest.mark.smoke
+    @pytest.mark.regression
     def test_get_movies(self, api_manager):
         with allure.step("Отправить GET /movies"):
             response = api_manager.movies_api.get_movies()
@@ -57,10 +58,11 @@ class TestMovies:
 
         with allure.step("Проверить данные фильма"):
             data = response.json()
-            assert data["id"] == movie_id, \
-                f"id не совпадает: ожидался {movie_id}, получен {data['id']}"
-            assert data["name"] == created_movie["name"], \
-                f"name не совпадает: ожидался {created_movie['name']}, получен {data['name']}"
+            movie = MovieModel(**data)
+            assert movie.id == movie_id, \
+                f"id не совпадает: ожидался {movie_id}, получен {movie.id}"
+            assert movie.name == created_movie["name"], \
+                f"name не совпадает: ожидался {created_movie['name']}, получен {movie.name}"
 
     @allure.title("PATCH /movies/{id} — обновление фильма")
     @allure.severity(allure.severity_level.NORMAL)
@@ -77,13 +79,13 @@ class TestMovies:
             )
 
         with allure.step("Проверить ответ"):
-            data = response.json()
-            assert data["id"] == movie_id, \
-                f"id изменился: ожидался {movie_id}, получен {data['id']}"
-            assert data["name"] == update_data["name"], \
-                f"name не обновился: ожидался {update_data['name']}, получен {data['name']}"
-            assert data["price"] == int(update_data["price"]), \
-                f"price не обновился: ожидался {int(update_data['price'])}, получен {data['price']}"
+            movie = MovieModel(**response.json())
+            assert movie.id == movie_id, \
+                f"id изменился: ожидался {movie_id}, получен {movie.id}"
+            assert movie.name == update_data["name"], \
+                f"name не обновился: ожидался {update_data['name']}, получен {movie.name}"
+            assert movie.price == int(update_data["price"]), \
+                f"price не обновился: ожидался {int(update_data['price'])}, получен {movie.price}"
 
     @allure.title("DELETE /movies/{id} — удаление фильма")
     @allure.severity(allure.severity_level.NORMAL)
